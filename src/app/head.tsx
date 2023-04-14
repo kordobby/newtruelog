@@ -20,7 +20,7 @@ const Meta: FC<MetaProps> = ({ ...props }) => {
         <title>{meta?.title}</title>
         <meta name="robots" content="follow, index" />
         <meta charSet="UTF-8" />
-        {CONFIG.seo.keywords && (
+        {CONFIG?.seo.keywords && (
           <meta name="kewords" content={CONFIG.seo.keywords.join(', ')} />
         )}
         <meta name="description" content={meta.description} />
@@ -29,7 +29,7 @@ const Meta: FC<MetaProps> = ({ ...props }) => {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:url" content={meta.url} />
-        <meta property="og:locale" content={CONFIG.lang} />
+        <meta property="og:locale" content={CONFIG?.lang} />
         <meta property="og:image" content={meta.image} />
         {/* Twitter */}
         <meta property="twitter:title" content={meta.title} />
@@ -39,7 +39,7 @@ const Meta: FC<MetaProps> = ({ ...props }) => {
         {/* POST */}
         <>
           <meta property="article:published_time" content={meta.date} />
-          <meta property='artoc;e"author' content={CONFIG.profile.name} />
+          <meta property="article:author" content={CONFIG?.profile.name} />
         </>
       </Head>
     </>
