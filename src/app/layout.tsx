@@ -1,5 +1,8 @@
+'use client';
+
 import './globals.css';
 import Meta, { MetaProps } from '../app/head';
+import { RootStyleRegistry } from '../lib/RootStyleRegistry';
 /**
  * layout.tsx
  * shared UI in every Components
@@ -16,7 +19,9 @@ export default function RootLayout({
   return (
     <html>
       <Meta {...metaConfig} />
-      <body>{children}</body>
+      <body>
+        <RootStyleRegistry>{children}</RootStyleRegistry>
+      </body>
     </html>
   );
 }
