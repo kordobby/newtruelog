@@ -1,4 +1,4 @@
-const SITE_CONFIG = {
+export const SITE_CONFIG = {
   /* meta */
   meta: {
     lang: 'ko-KR',
