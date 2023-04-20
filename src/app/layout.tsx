@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={SITE_CONFIG.meta.lang}>
+    <html>
       <Script />
       <body>{children}</body>
     </html>
