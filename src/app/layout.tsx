@@ -1,6 +1,6 @@
 import './globals.css';
 import { SITE_CONFIG } from '../../site.config';
-import { Head } from 'next/document';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,9 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={SITE_CONFIG.meta.lang}>
-      <Head>
-        <></>
-      </Head>
+      <Script />
       <body>{children}</body>
     </html>
   );
