@@ -14,13 +14,16 @@ export const IBM_ITALIC_B = IBM_Plex_Sans({
   weight: '700',
   display: 'fallback', // fallback?
   style: 'italic',
-  variable: '--ibm',
+  // variable: '--ibm',
+  subsets: ['cyrillic-ext', 'cyrillic', 'greek'],
+  // preload: false,
 });
 
 export const IBM_ITALIC_M = IBM_Plex_Sans({
   weight: '500',
   display: 'fallback', // fallback?
   style: 'italic',
+  subsets: ['cyrillic-ext', 'cyrillic', 'greek'],
   variable: '--ibm',
 });
 
@@ -28,6 +31,7 @@ export const IBM_ITALIC_T = IBM_Plex_Sans({
   weight: '300',
   display: 'fallback', // fallback?
   style: 'italic',
+  subsets: ['cyrillic-ext', 'cyrillic', 'greek'],
   variable: '--ibm',
 });
 
@@ -35,6 +39,7 @@ export const IBM_NORMAL_M = IBM_Plex_Sans({
   weight: '500',
   display: 'fallback', // fallback?
   style: 'normal',
+  subsets: ['cyrillic-ext', 'cyrillic', 'greek'],
   variable: '--ibm',
 });
 
