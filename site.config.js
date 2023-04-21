@@ -62,6 +62,13 @@ export const SITE_CONFIG = {
     instagram: 'yuniscells',
     careerly: 'yoon',
   },
+  contact: [
+    { name: 'github', id: 'kordobby' },
+    { name: 'careerly', id: 'yoon' },
+    { name: 'instagram', id: 'yuniscells' },
+    { name: 'linkedin', id: 'leetrue' },
+  ],
+
   projects: [
     {
       name: 'CHIC',

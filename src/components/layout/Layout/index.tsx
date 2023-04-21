@@ -21,5 +21,5 @@ const LayoutWrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
 
-  background-color: ${colors.brand.white};
+  background-color: ${colors.brand.gray};
 `;

@@ -1,13 +1,16 @@
 'use client';
 
 import styled from 'styled-components';
+import SideCard from '../SideCard';
 
 const Column = () => {
   return (
     <ColumnWrapper>
       <div className="left-col"></div>
       <div className="center-col"></div>
-      <div className="right-col"></div>
+      <div className="right-col">
+        <SideCard />
+      </div>
     </ColumnWrapper>
   );
 };
@@ -18,7 +21,7 @@ const ColumnWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  /* height: 100vh; */
+  height: 100vh;
   .left-col,
   .right-col {
     grid-column: span 3 / span 3;

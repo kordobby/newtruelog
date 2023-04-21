@@ -35,8 +35,8 @@ export const IBM_ITALIC_T = IBM_Plex_Sans({
   variable: '--ibm',
 });
 
-export const IBM_NORMAL_M = IBM_Plex_Sans({
-  weight: '500',
+export const IBM_NORMAL_B = IBM_Plex_Sans({
+  weight: '700',
   display: 'fallback', // fallback?
   style: 'normal',
   subsets: ['cyrillic-ext', 'cyrillic', 'greek'],
@@ -78,7 +78,7 @@ export const utilFonts = (types: FontType) => {
     [
       'normal',
       css`
-        font-family: ${IBM_NORMAL_M.style.fontFamily};
+        font-family: ${IBM_NORMAL_B.style.fontFamily};
         font-size: '12px';
       `,
     ],
