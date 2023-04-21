@@ -8,7 +8,10 @@ import { IBM_ITALIC_B } from '@/libs/global/fonts';
 const Header = () => {
   return (
     <HeaderWrapper className={IBM_ITALIC_B.className}>
-      <Logo />
+      <HeaderInnerWrapper>
+        <Logo types="logo" />
+        <Logo types="about" />
+      </HeaderInnerWrapper>
     </HeaderWrapper>
   );
 };
@@ -22,4 +25,14 @@ const HeaderWrapper = styled.div`
   position: sticky;
   z-index: 4;
   top: 0;
+
+  display: flex;
+  justify-content: center;
+`;
+
+const HeaderInnerWrapper = styled.div`
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2rem;
 `;

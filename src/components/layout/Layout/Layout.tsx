@@ -1,5 +1,6 @@
 'use client';
 
+import { colors } from '@/libs/global/palette';
 import styled from 'styled-components';
 
 interface ILayout {
@@ -19,4 +20,6 @@ const LayoutWrapper = styled.div`
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
+
+  background-color: ${colors.brand.white};
 `;
