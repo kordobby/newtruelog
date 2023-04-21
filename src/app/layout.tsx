@@ -1,8 +1,9 @@
 import './globals.css';
 import { SITE_CONFIG } from '../../site.config';
 import Script from 'next/script';
-import Layout from '@/components/layout/Layout/Layout';
+import Layout from '@/components/layout/Layout';
 import StyledComponentsRegistry from '@/libs/global/registry';
+import Header from '@/components/layout/Header';
 export const metadata = {
   ...SITE_CONFIG.meta,
 };
@@ -17,6 +18,7 @@ export default function RootLayout({
       <Script />
       <body>
         <StyledComponentsRegistry>
+          <Header />
           <Layout>{children}</Layout>
         </StyledComponentsRegistry>
       </body>
