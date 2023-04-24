@@ -5,6 +5,7 @@ import SideCard from '../../SideCard';
 import Category from '@/components/Category';
 import Search from '@/components/Search';
 import Profile from '@/components/Profile';
+import Feed from '@/components/Feed';
 
 const Column = () => {
   return (
@@ -12,7 +13,9 @@ const Column = () => {
       <div className="left-col">
         <Profile />
       </div>
-      <div className="center-col"></div>
+      <div className="center-col">
+        <Feed />
+      </div>
       <div className="right-col">
         <Search />
         <Category />
