@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import SideCard from '../../SideCard';
 import Category from '@/components/Category';
 import Search from '@/components/Search';
+import Profile from '@/components/Profile';
 
 const Column = () => {
   return (
     <ColumnWrapper>
-      <div className="left-col"></div>
+      <div className="left-col">
+        <Profile />
+      </div>
       <div className="center-col"></div>
       <div className="right-col">
         <Search />

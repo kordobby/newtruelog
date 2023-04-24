@@ -61,6 +61,7 @@ export const SITE_CONFIG = {
     github: 'kordobby',
     instagram: 'yuniscells',
     careerly: 'yoon',
+    desc: 'dobby is free',
   },
   contact: [
     { name: 'github', href: 'kordobby' },
@@ -78,7 +79,6 @@ export const SITE_CONFIG = {
   seo: {
     keywords: ['Blog', 'Website', 'Notion'],
   },
-  profile: {},
   notionConfig: '',
   gaConfig: '',
   utterances: {
