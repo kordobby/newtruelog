@@ -33,6 +33,7 @@ const ColumnWrapper = styled.div`
   gap: 1.5rem;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   height: 100vh;
+  padding-top: 40px;
   .left-col,
   .right-col {
     grid-column: span 3 / span 3;
