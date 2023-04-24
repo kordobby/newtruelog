@@ -7,6 +7,7 @@ import Search from '@/components/Search';
 import Profile from '@/components/Profile';
 import Feed from '@/components/Feed';
 import MobileProfile from '@/components/Profile/MobileProfile';
+import MobileSearch from '@/components/Search/MobileSearch';
 
 const Column = () => {
   return (
@@ -16,6 +17,7 @@ const Column = () => {
       </div>
       <div className="center-col">
         <MobileProfile />
+        <MobileSearch />
         <Feed />
       </div>
       <div className="right-col">
