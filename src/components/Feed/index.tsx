@@ -1,3 +1,4 @@
+import MobileFilter from '../Category/MobileFilter';
 import MobileSearch from '../Search/MobileSearch';
 import FeedHeader from './FeedHeader';
 import PostCard from './PostCard';
@@ -7,6 +8,7 @@ const Feed = () => {
   return (
     <FeedWrapper>
       <FeedHeader />
+      <MobileFilter />
       <MobileSearch />
       {dummy.map((value, index) => {
         return <PostCard key={value} />;
