@@ -32,6 +32,9 @@ const ColumnWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  @media (max-width: 72rem) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
   height: 100vh;
   padding-top: 40px;
   .left-col,
@@ -40,6 +43,14 @@ const ColumnWrapper = styled.div`
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    @media (max-width: 72rem) {
+      grid-column: span 1 / span 1;
+    }
+    div {
+      @media (max-width: 72rem) {
+        display: none !important;
+      }
+    }
   }
 
   .left-col {
@@ -48,6 +59,9 @@ const ColumnWrapper = styled.div`
   .center-col {
     grid-column: span 6 / span 6;
     /* border: 1px solid black; */
+    @media (max-width: 72rem) {
+      grid-column: span 10 / span 10;
+    }
     display: flex;
     flex-direction: column;
   }

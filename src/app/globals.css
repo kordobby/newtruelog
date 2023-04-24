@@ -21,8 +21,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@media (max-width: 72rem) {
+  /* main {
+    border: 1px solid red;
+  } */
 }
