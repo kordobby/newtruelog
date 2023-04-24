@@ -20,6 +20,6 @@ const LayoutWrapper = styled.div`
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
-
+  overflow: scroll;
   background-color: ${colors.brand.gray};
 `;

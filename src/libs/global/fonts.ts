@@ -57,7 +57,8 @@ type FontType =
   | 'title'
   | 'subtitle'
   | 'normal'
-  | 'normal-m';
+  | 'normal-m'
+  | 'postTitle';
 
 export const utilFonts = (types: FontType) => {
   const source = new Map([
@@ -86,6 +87,13 @@ export const utilFonts = (types: FontType) => {
       'subtitle',
       css`
         font-family: ${IBM_ITALIC_B.style.fontFamily};
+        font-size: '18px';
+      `,
+    ],
+    [
+      'postTitle',
+      css`
+        font-family: ${IBM_NORMAL_B.style.fontFamily};
         font-size: '18px';
       `,
     ],

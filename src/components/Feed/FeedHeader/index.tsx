@@ -23,6 +23,7 @@ const FeedHeaderWrapper = styled.div`
   padding-top: 20px;
   padding-bottom: 5px;
   border-bottom: 1px solid ${colors.brand.black};
+  margin-bottom: 20px;
   h3 {
     ${utilFonts('subtitle')};
     font-size: 28px;

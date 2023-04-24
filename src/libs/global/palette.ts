@@ -7,7 +7,7 @@ export const colors = {
     white: '#FFFFFF',
   },
   text: {
-    desc: 'F3F0EC',
+    desc: '#A1A1A1',
     primary: '#F3F0EC',
   },
 };

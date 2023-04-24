@@ -36,14 +36,14 @@ const ColumnWrapper = styled.div`
   .left-col,
   .right-col {
     grid-column: span 3 / span 3;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
   }
 
   .center-col {
     grid-column: span 6 / span 6;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
   }
