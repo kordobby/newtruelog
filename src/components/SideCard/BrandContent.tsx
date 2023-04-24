@@ -1,5 +1,7 @@
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { ContactType, transferLinkUrl } from '@/utils/transferLinkUrl';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const BrandContent = ({
@@ -7,14 +9,16 @@ const BrandContent = ({
   linkName,
   isContact,
 }: {
-  sns: string;
+  sns: ContactType;
   linkName: string;
   isContact: boolean;
 }) => {
   return (
-    <BrandContentWrapper isContact={isContact}>
-      <div className="icon" />
-      <span>{sns}</span>
+    <BrandContentWrapper isContact={isContact} onClick={() => {}}>
+      <Link href={transferLinkUrl(sns) ?? ''} target="_blank">
+        <div className="icon" />
+        <span>{sns}</span>
+      </Link>
     </BrandContentWrapper>
   );
 };
@@ -22,8 +26,10 @@ const BrandContent = ({
 export default BrandContent;
 
 const BrandContentWrapper = styled.div<{ isContact: boolean }>`
-  display: flex;
-  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
+  }
   color: ${({ isContact }) =>
     isContact ? colors.brand.white : colors.brand.black};
   padding: 4px 10px;
