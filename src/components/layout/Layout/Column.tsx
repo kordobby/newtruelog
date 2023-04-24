@@ -1,7 +1,9 @@
 'use client';
 
 import styled from 'styled-components';
-import SideCard from '../SideCard';
+import SideCard from '../../SideCard';
+import Category from '@/components/Category';
+import Search from '@/components/Search';
 
 const Column = () => {
   return (
@@ -9,6 +11,8 @@ const Column = () => {
       <div className="left-col"></div>
       <div className="center-col"></div>
       <div className="right-col">
+        <Search />
+        <Category />
         <SideCard category="contact" />
         <SideCard category="service" />
       </div>
