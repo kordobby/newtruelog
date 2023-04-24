@@ -2,9 +2,17 @@ import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import styled from 'styled-components';
 
-const BrandContent = ({ sns, userId }: { sns: string; userId: string }) => {
+const BrandContent = ({
+  sns,
+  linkName,
+  isContact,
+}: {
+  sns: string;
+  linkName: string;
+  isContact: boolean;
+}) => {
   return (
-    <BrandContentWrapper>
+    <BrandContentWrapper isContact={isContact}>
       <div className="icon" />
       <span>{sns}</span>
     </BrandContentWrapper>
@@ -13,10 +21,11 @@ const BrandContent = ({ sns, userId }: { sns: string; userId: string }) => {
 
 export default BrandContent;
 
-const BrandContentWrapper = styled.div`
+const BrandContentWrapper = styled.div<{ isContact: boolean }>`
   display: flex;
   align-items: center;
-  color: ${colors.brand.black};
+  color: ${({ isContact }) =>
+    isContact ? colors.brand.white : colors.brand.black};
   padding: 4px 10px;
   .icon {
     width: 30px;
@@ -26,7 +35,7 @@ const BrandContentWrapper = styled.div`
     margin-right: 10px;
   }
   span {
-    color: ${colors.brand.black};
+    /* color: ${colors.brand.black}; */
     font-family: ${utilFonts('normal')};
     font-size: 14px;
     font-weight: 700;

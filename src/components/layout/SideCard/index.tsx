@@ -2,16 +2,23 @@ import { SITE_CONFIG } from '@/../site.config';
 import BrandContent from './BrandContent';
 import { SideCardWrapper } from './SideCard.styles';
 
-const SideCard = () => {
+interface SideCardProps {
+  category: 'contact' | 'service';
+}
+
+const SideCard = ({ category }: SideCardProps) => {
+  const { contact, service } = SITE_CONFIG;
+  const isContact = category === 'contact';
   return (
-    <SideCardWrapper>
-      <h3>contact</h3>
-      {SITE_CONFIG.contact.map((value, index) => {
+    <SideCardWrapper isContact={isContact}>
+      <h3>{category}</h3>
+      {(isContact ? contact : service).map((value, index) => {
         return (
           <BrandContent
-            key={`contact-${value.name}`}
+            key={`contact-${value.name}-${index}`}
             sns={value.name}
-            userId={value.id}
+            linkName={value.href}
+            isContact={isContact}
           />
         );
       })}

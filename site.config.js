@@ -63,13 +63,13 @@ export const SITE_CONFIG = {
     careerly: 'yoon',
   },
   contact: [
-    { name: 'github', id: 'kordobby' },
-    { name: 'careerly', id: 'yoon' },
-    { name: 'instagram', id: 'yuniscells' },
-    { name: 'linkedin', id: 'leetrue' },
+    { name: 'github', href: 'kordobby' },
+    { name: 'careerly', href: 'yoon' },
+    { name: 'instagram', href: 'yuniscells' },
+    { name: 'linkedin', href: 'leetrue' },
   ],
 
-  projects: [
+  service: [
     {
       name: 'CHIC',
       href: '',

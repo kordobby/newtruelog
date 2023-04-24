@@ -11,13 +11,11 @@
 
 main {
   flex-grow: inherit;
-  padding-left: 1rem;
-  padding-right: 1rem;
   width: 100%;
   max-width: 72rem;
-  transition-property: all;
+  /* transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.15s;
+  transition-duration: 0.15s; */
   margin: auto;
 }
 

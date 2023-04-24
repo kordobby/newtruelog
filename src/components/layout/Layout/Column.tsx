@@ -9,7 +9,8 @@ const Column = () => {
       <div className="left-col"></div>
       <div className="center-col"></div>
       <div className="right-col">
-        <SideCard />
+        <SideCard category="contact" />
+        <SideCard category="service" />
       </div>
     </ColumnWrapper>
   );
@@ -26,10 +27,14 @@ const ColumnWrapper = styled.div`
   .right-col {
     grid-column: span 3 / span 3;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
   }
 
   .center-col {
     grid-column: span 6 / span 6;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
   }
 `;
