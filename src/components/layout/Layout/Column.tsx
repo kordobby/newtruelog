@@ -17,7 +17,6 @@ const Column = () => {
       </div>
       <div className="center-col">
         <MobileProfile />
-        <MobileSearch />
         <Feed />
       </div>
       <div className="right-col">

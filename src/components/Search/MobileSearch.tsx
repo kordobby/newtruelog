@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const MobileSearch = () => {
   return (
     <MobileSearchWrapper>
-      <h3>Search</h3>
       <div className="search-box">
+        <span>🔍</span>
         <input></input>
       </div>
     </MobileSearchWrapper>
@@ -29,12 +29,13 @@ const MobileSearchWrapper = styled.div`
       margin-bottom: 4px;
     }
     .search-box {
-      /* border: 1px solid red; */
-      border-bottom: 1px solid ${colors.brand.black};
+      display: flex;
       padding: 5px;
       input {
+        margin-left: 12px;
         border: none;
         outline: none;
+        width: 100%;
       }
     }
   }
