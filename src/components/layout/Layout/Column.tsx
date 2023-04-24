@@ -8,6 +8,7 @@ import Profile from '@/components/Profile';
 import Feed from '@/components/Feed';
 import MobileProfile from '@/components/Profile/MobileProfile';
 import MobileSearch from '@/components/Search/MobileSearch';
+import MobileContact from '@/components/SideCard/MobileContact';
 
 const Column = () => {
   return (
@@ -17,6 +18,7 @@ const Column = () => {
       </div>
       <div className="center-col">
         <MobileProfile />
+        <MobileContact />
         <Feed />
       </div>
       <div className="right-col">
