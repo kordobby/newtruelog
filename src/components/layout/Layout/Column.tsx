@@ -42,6 +42,9 @@ const ColumnWrapper = styled.div`
     flex-direction: column;
   }
 
+  .left-col {
+    align-items: flex-end;
+  }
   .center-col {
     grid-column: span 6 / span 6;
     /* border: 1px solid black; */

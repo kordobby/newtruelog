@@ -21,7 +21,7 @@ const ProfileWrapper = styled.div`
   background-color: ${colors.brand.blue};
   border-radius: 15px;
   font-size: 14px;
-  max-width: 228px;
+  width: 190px;
   padding: 15px 18px 32px 18px;
   margin: 15px 0px;
 
