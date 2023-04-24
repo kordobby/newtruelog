@@ -6,6 +6,7 @@ import Category from '@/components/Category';
 import Search from '@/components/Search';
 import Profile from '@/components/Profile';
 import Feed from '@/components/Feed';
+import MobileProfile from '@/components/Profile/MobileProfile';
 
 const Column = () => {
   return (
@@ -14,6 +15,7 @@ const Column = () => {
         <Profile />
       </div>
       <div className="center-col">
+        <MobileProfile />
         <Feed />
       </div>
       <div className="right-col">
