@@ -38,7 +38,8 @@ const ColumnWrapper = styled.div`
   gap: 1.5rem;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   @media (max-width: 72rem) {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(24, minmax(0, 1fr));
+    gap: 0rem;
   }
   height: 100vh;
   padding-top: 40px;
@@ -65,7 +66,7 @@ const ColumnWrapper = styled.div`
     grid-column: span 6 / span 6;
     /* border: 1px solid black; */
     @media (max-width: 72rem) {
-      grid-column: span 10 / span 10;
+      grid-column: span 22 / span 22;
     }
     display: flex;
     flex-direction: column;

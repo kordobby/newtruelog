@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const PostCard = () => {
   return (
     <PostCardWrapper>
-      <div className="profile-image"></div>
+      {/* <div className="profile-image"></div> */}
       <h3>React Design Pattern and Storybook Basic</h3>
       <span className="post-date">Apr 7, 2023</span>
       <span className="post-desc">
