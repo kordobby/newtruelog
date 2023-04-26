@@ -33,6 +33,7 @@ const Column = () => {
 
 export default Column;
 
+/* 구조 관련해서 추가적으로 찾아보자. */
 const ColumnWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
