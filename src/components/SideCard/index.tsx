@@ -1,3 +1,5 @@
+'use client';
+
 import { SITE_CONFIG } from '@/../site.config';
 import BrandContent from './BrandContent';
 import { SideCardWrapper } from './SideCard.styles';

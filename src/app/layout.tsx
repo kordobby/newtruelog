@@ -4,9 +4,9 @@ import Script from 'next/script';
 import Layout from '@/components/layout/Layout';
 import StyledComponentsRegistry from '@/libs/global/registry';
 import Header from '@/components/layout/Header';
-export const metadata = {
-  ...SITE_CONFIG.meta,
-};
+// export const metadata = {
+//   ...SITE_CONFIG.meta,
+// };
 
 export default function RootLayout({
   children,

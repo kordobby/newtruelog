@@ -1,3 +1,5 @@
+'use client';
+
 import Tag from '@/components/layout/Tag';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';

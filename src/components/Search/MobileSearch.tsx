@@ -1,3 +1,5 @@
+'use client';
+
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import styled from 'styled-components';

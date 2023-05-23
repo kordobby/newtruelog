@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 import { SITE_CONFIG } from '@/../site.config';
 import { colors } from '@/libs/global/palette';

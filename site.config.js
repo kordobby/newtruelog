@@ -79,7 +79,7 @@ export const SITE_CONFIG = {
   seo: {
     keywords: ['Blog', 'Website', 'Notion'],
   },
-  notionConfig: '',
+  notionConfig: process.env.NOTION_PAGE_ID,
   gaConfig: '',
   utterances: {
     config: {

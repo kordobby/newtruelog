@@ -1,13 +1,10 @@
 'use client';
 
 import { colors } from '@/libs/global/palette';
+import { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-interface ILayout {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: ILayout) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return <LayoutWrapper>{children}</LayoutWrapper>;
 };
 

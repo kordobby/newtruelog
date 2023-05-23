@@ -1,3 +1,5 @@
+'use client';
+
 import { SITE_CONFIG } from '@/../site.config';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
