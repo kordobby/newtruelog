@@ -3,22 +3,25 @@
 import Tag from '@/components/layout/Tag';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { TPost } from '@/libs/types';
+import { transferDate } from '@/utils/transferDate';
 import styled from 'styled-components';
 
-const PostCard = () => {
+const PostCard = ({ post }: { post: TPost }) => {
+  const tags = post?.tags;
   return (
     <PostCardWrapper>
       {/* <div className="profile-image"></div> */}
-      <h3>React Design Pattern and Storybook Basic</h3>
-      <span className="post-date">Apr 7, 2023</span>
-      <span className="post-desc">
-        리액트 디자인 패턴에 대한 이론적인 내용ㅇ고 ㅏ스로티북 찍먹 기록입니다.
+      <h3>{post.title}</h3>
+      <span className="post-date">
+        {transferDate(post?.date?.start_date || post?.createdTime, 'ko-KR')}
       </span>
+      <span className="post-desc">{post?.summary}</span>
       <div className="tag-wrapper">
-        {[1, 2, 3].map((value, index) => {
+        {tags?.map((value, index) => {
           return (
             <Tag key={index} colorIndex={index}>
-              React
+              {value}
             </Tag>
           );
         })}

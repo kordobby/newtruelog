@@ -4,10 +4,10 @@ import FeedHeader from './FeedHeader';
 import PostCard from './PostCard';
 import FeedWrapper from './FeedWrapper';
 import { getPosts } from '@/libs/apis/getPosts';
+import { getPostBlocks } from '@/libs/apis/getPostBlocks';
 
-const Feed = () => {
-  const dummy = [1, 2, 3];
-  const response = getPosts();
+const Feed = async () => {
+  const posts = await getPosts();
 
   return (
     <FeedWrapper>
@@ -15,8 +15,8 @@ const Feed = () => {
         <FeedHeader />
         <MobileFilter />
         <MobileSearch />
-        {dummy.map((value, index) => {
-          return <PostCard key={value} />;
+        {posts.map((value, index) => {
+          return <PostCard key={`post-${value.id}-${index}`} post={value} />;
         })}
       </>
     </FeedWrapper>
