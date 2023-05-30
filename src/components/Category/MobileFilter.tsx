@@ -2,6 +2,7 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 const MobileFilter = () => {
@@ -20,6 +21,25 @@ const MobileFilter = () => {
     'React',
     'Monthly',
   ];
+  const router = useRouter();
+  const filteredTag = router?.query?.t;
+  const setTagFilter = (value: string) => {
+    if (filteredTag === value) {
+      router.push({
+        query: {
+          ...router.query,
+          t: undefined,
+        },
+      });
+    } else {
+      router.push({
+        query: {
+          ...router.query,
+          t: value,
+        },
+      });
+    }
+  };
 
   return (
     <MobileFilterWrapper>
