@@ -1,3 +1,4 @@
+import React from 'react';
 import MobileFilter from '../Category/MobileFilter';
 import MobileSearch from '../Search/MobileSearch';
 import FeedHeader from './FeedHeader';
@@ -10,12 +11,12 @@ const Feed = async () => {
 
   return (
     <FeedWrapper>
-      <>
+      <React.Fragment>
         <FeedHeader />
         <MobileFilter />
         <MobileSearch />
         <PostCardList posts={posts} />
-      </>
+      </React.Fragment>
     </FeedWrapper>
   );
 };

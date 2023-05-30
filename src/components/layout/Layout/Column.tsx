@@ -17,7 +17,6 @@ const Column = () => {
       <div className="center-col">
         <MobileProfile />
         <MobileContact />
-        {/* @ts-expect-error Async Server Component */}
         <Feed />
       </div>
       <div className="right-col">

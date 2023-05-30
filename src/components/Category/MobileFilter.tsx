@@ -2,8 +2,10 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
-import { useRouter } from 'next/router';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
+import { useCallback, useState } from 'react';
 
 const MobileFilter = () => {
   const dummyData = [
@@ -21,31 +23,43 @@ const MobileFilter = () => {
     'React',
     'Monthly',
   ];
+
+  const [queryString, setQueryString] = useState<string>('');
   const router = useRouter();
-  const filteredTag = router?.query?.t;
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const tag = searchParams.get('t');
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      if (tag === value) {
+        params.delete(name);
+      } else {
+        params.set(name, value);
+      }
+      console.log(params, 'params');
+      return params.toString();
+    },
+    [searchParams],
+  );
+
   const setTagFilter = (value: string) => {
-    if (filteredTag === value) {
-      router.push({
-        query: {
-          ...router.query,
-          t: undefined,
-        },
-      });
-    } else {
-      router.push({
-        query: {
-          ...router.query,
-          t: value,
-        },
-      });
-    }
+    router.push(`${pathname}?${createQueryString('t', value)}`);
   };
 
   return (
     <MobileFilterWrapper>
       <div className="category-tags">
         {dummyData.map((value, index) => (
-          <Text isActive={value === 'All'} key={index}>
+          <Text
+            onClick={() => {
+              setTagFilter(value);
+            }}
+            isActive={value === 'All'}
+            key={index}
+            style={{ cursor: 'pointer' }}
+          >
             {value}
           </Text>
         ))}

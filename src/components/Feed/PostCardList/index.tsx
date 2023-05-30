@@ -14,6 +14,8 @@ const PostCardList: FC<PostCardListInterface> = ({ posts }) => {
     if (!posts) return;
     setFilteredPosts(posts);
   }, [posts]);
+
+  if (!posts) return <></>;
   return (
     <>
       {filterdPosts?.map((value, index) => {
