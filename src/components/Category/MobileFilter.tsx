@@ -24,7 +24,6 @@ const MobileFilter = () => {
     'Monthly',
   ];
 
-  const [queryString, setQueryString] = useState<string>('');
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -38,7 +37,6 @@ const MobileFilter = () => {
       } else {
         params.set(name, value);
       }
-      console.log(params, 'params');
       return params.toString();
     },
     [searchParams],
