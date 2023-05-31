@@ -26,12 +26,13 @@ const MobileFilter = () => {
 
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const pathname = usePathname();
   const tag = searchParams.get('t');
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams();
       if (tag === value) {
         params.delete(name);
       } else {
