@@ -5,9 +5,13 @@ import { colors } from '@/libs/global/palette';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
-import { useCallback, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
+import { TTags } from '@/libs/types';
 
-const MobileFilter = () => {
+interface IFilter {
+  tags: TTags;
+}
+const MobileFilter: FC<IFilter> = ({ tags }) => {
   const dummyData = [
     'All',
     'Blog',
@@ -24,6 +28,7 @@ const MobileFilter = () => {
     'Monthly',
   ];
 
+  const tagList = Object.keys(tags);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -50,7 +55,7 @@ const MobileFilter = () => {
   return (
     <MobileFilterWrapper>
       <div className="category-tags">
-        {dummyData.map((value, index) => (
+        {tagList?.map((value, index) => (
           <Text
             onClick={() => {
               setTagFilter(value);
