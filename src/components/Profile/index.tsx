@@ -4,13 +4,20 @@ import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import styled from 'styled-components';
 import { SITE_CONFIG } from '@/../site.config';
+import Image from 'next/image';
 
 const Profile = () => {
   return (
     <ProfileWrapper>
       <h3>Profile</h3>
       <div className="profile">
-        <div className="profile_image" />
+        <Image
+          src="/leetrue.PNG"
+          width={165}
+          height={165}
+          alt="profile image"
+          style={{ borderRadius: '8px' }}
+        />
         <span className="profile_name">{SITE_CONFIG.profile.name}</span>
         <span className="profile_role">{SITE_CONFIG.profile.role}</span>
         <span className="profile_desc">{SITE_CONFIG.profile.desc}</span>
