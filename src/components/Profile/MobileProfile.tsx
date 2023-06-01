@@ -4,12 +4,20 @@ import { SITE_CONFIG } from '@/../site.config';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 const MobileProfile = () => {
   return (
     <MobileProfileWrapper>
       <div className="profile-wrapper">
-        <div className="image"></div>
+        {/* <div className="image">dd</div> */}
+        <Image
+          src="/leetrue.PNG"
+          width={80}
+          height={80}
+          alt="profile image"
+          style={{ borderRadius: '8px' }}
+        />
         <div className="profile-info">
           <span className="profile_name">{SITE_CONFIG.profile.name}</span>
           <span className="profile_role">{SITE_CONFIG.profile.role}</span>
