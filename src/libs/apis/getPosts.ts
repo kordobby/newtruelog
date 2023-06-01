@@ -45,6 +45,24 @@ export const getPosts = async () => {
       return dateB - dateA;
     });
 
-    return data as TPosts;
+    const post = data as TPosts;
+
+    const current = new Date();
+    const tomorrow = new Date(current);
+    const filteredPost = post
+      .filter((value) => {
+        const date = new Date(value?.date?.start_date || value?.createdTime);
+        if (!value.title || !value.slug || date > tomorrow) return false;
+        return true;
+      })
+      .filter((value) => {
+        const status = value?.status?.[0];
+        return ['Public'].includes(status);
+      })
+      .filter((value) => {
+        const type = value?.type?.[0];
+        return ['Post'].includes(type);
+      });
+    return filteredPost as TPosts;
   }
 };

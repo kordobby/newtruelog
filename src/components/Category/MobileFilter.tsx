@@ -25,9 +25,9 @@ const MobileFilter = () => {
   ];
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-
   const pathname = usePathname();
+
+  const searchParams = useSearchParams();
   const tag = searchParams.get('t');
 
   const createQueryString = useCallback(
