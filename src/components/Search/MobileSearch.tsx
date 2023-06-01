@@ -2,14 +2,22 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 
 const MobileSearch = () => {
+  const [keyword, setKeyword] = useState('');
+
+  const getKeyword = (e: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
+
+  /* 엔터를 치면 쿼리스트링 등록되게끔 구현해야지. */
   return (
     <MobileSearchWrapper>
       <div className="search-box">
         <span>🔍</span>
-        <input></input>
+        <input onChange={getKeyword}></input>
       </div>
     </MobileSearchWrapper>
   );

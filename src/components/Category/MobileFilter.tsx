@@ -5,7 +5,7 @@ import { colors } from '@/libs/global/palette';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback } from 'react';
 import { TTags } from '@/libs/types';
 
 interface IFilter {
