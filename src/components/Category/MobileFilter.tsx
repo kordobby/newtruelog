@@ -40,16 +40,16 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
     <MobileFilterWrapper>
       <div className="category-tags">
         {tagList?.map((value, index) => (
-          <Text
+          <TagWrapper
+            isActive={value === tag}
+            key={value}
             onClick={() => {
               setTagFilter(value);
             }}
-            isActive={value === 'All'}
-            key={index}
             style={{ cursor: 'pointer' }}
           >
-            {value}
-          </Text>
+            <span>{value}</span>
+          </TagWrapper>
         ))}
       </div>
     </MobileFilterWrapper>
@@ -60,25 +60,33 @@ export default MobileFilter;
 
 const MobileFilterWrapper = styled.div`
   display: none;
+  /* hide scrollbar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
   @media (max-width: 72rem) {
     display: block;
     overflow: scroll;
 
     .category-tags {
       display: flex;
-      /* flex-direction: column; */
       font-family: ${utilFonts('normal')};
       font-size: 14px;
       font-weight: 700;
-      gap: 10px;
+      gap: 5px;
       padding-left: 10px;
     }
   }
 `;
 
-const Text = styled.span<{ isActive: boolean }>`
+const TagWrapper = styled.div<{ isActive: boolean }>`
   background-color: ${({ isActive }) => isActive && colors.brand.blue};
-  color: ${({ isActive }) => isActive && colors.brand.white};
-  padding: 5px 10px;
+  padding: 2px 10px;
   border-radius: 5px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  span {
+    color: ${({ isActive }) => isActive && colors.brand.white};
+  }
 `;
