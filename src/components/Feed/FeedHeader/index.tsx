@@ -2,9 +2,27 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useCallback } from 'react';
 import styled from 'styled-components';
 
 const FeedHeader = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const sort = searchParams.get('s');
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams?.toString());
+      params.set(name, value);
+      return params.toString();
+    },
+    [searchParams],
+  );
+  const setTagFilter = (value: string) => {
+    router.push(`${pathname}?${createQueryString('s', value)}`);
+  };
   return (
     <FeedHeaderWrapper>
       <div className="posts">
@@ -12,8 +30,22 @@ const FeedHeader = () => {
         <span>(23)</span>
       </div>
       <div className="filter">
-        <FeelFilterBtn isActive={true}>Desc</FeelFilterBtn>
-        <FeelFilterBtn isActive={false}>Asc</FeelFilterBtn>
+        <FeelFilterBtn
+          onClick={() => {
+            setTagFilter('desc');
+          }}
+          isActive={sort === null || sort === 'desc'}
+        >
+          Desc
+        </FeelFilterBtn>
+        <FeelFilterBtn
+          onClick={() => {
+            setTagFilter('asc');
+          }}
+          isActive={sort === 'asc'}
+        >
+          Asc
+        </FeelFilterBtn>
       </div>
     </FeedHeaderWrapper>
   );

@@ -21,7 +21,7 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams();
+      const params = new URLSearchParams(searchParams?.toString());
       if (tag === value) {
         params.delete(name);
       } else {
