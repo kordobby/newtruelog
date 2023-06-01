@@ -10,6 +10,20 @@ import {
   FaTwitter,
   FaGrinAlt,
 } from 'react-icons/fa';
+
+type ContactType = 'github' | 'careerly' | 'instagram' | 'linkedin' | 'twitter';
+const getContactIcon = (option: ContactType) => {
+  const style = { width: '28px', height: '28px', color: 'white' };
+  const optionsObj = {
+    github: <FaGithub style={style} />,
+    careerly: <FaGrinAlt style={style} />,
+    instagram: <FaInstagram style={style} />,
+    linkedin: <FaLinkedinIn style={style} />,
+    twitter: <FaTwitter style={style} />,
+  };
+  return optionsObj?.[option];
+};
+
 const MobileContact = () => {
   return (
     <MobileContactWrapper>
@@ -17,7 +31,7 @@ const MobileContact = () => {
         {SITE_CONFIG.contact.map((value, index) => {
           return (
             <div className="contact-icon" key={index}>
-              <FaGithub />
+              {getContactIcon(value?.name as ContactType)}
             </div>
           );
         })}
@@ -44,6 +58,10 @@ const MobileContactWrapper = styled.div`
         height: 50px;
         background-color: ${colors.brand.orange};
         border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
       }
     }
   }
