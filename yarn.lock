@@ -1044,6 +1044,11 @@ react-hotkeys-hook@^3.0.3:
   dependencies:
     hotkeys-js "3.9.4"
 
+react-icons@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.9.0.tgz#ba44f436a053393adb1bdcafbc5c158b7b70d2a3"
+  integrity sha512-ijUnFr//ycebOqujtqtV9PFS7JjhWg0QU6ykURVHuL4cbofvRCf3f6GMn9+fBktEFQOIVZnuAYLZdiyadRQRFg==
+
 react-image@^4.0.3:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-image/-/react-image-4.1.0.tgz#92f2d4a809a178b3bf69acd7bad7da7aa5e7364c"

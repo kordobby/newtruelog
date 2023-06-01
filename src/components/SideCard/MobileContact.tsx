@@ -3,7 +3,13 @@
 import styled from 'styled-components';
 import { SITE_CONFIG } from '@/../site.config';
 import { colors } from '@/libs/global/palette';
-
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaGrinAlt,
+} from 'react-icons/fa';
 const MobileContact = () => {
   return (
     <MobileContactWrapper>
@@ -11,7 +17,7 @@ const MobileContact = () => {
         {SITE_CONFIG.contact.map((value, index) => {
           return (
             <div className="contact-icon" key={index}>
-              {/* {value.name} */}
+              <FaGithub />
             </div>
           );
         })}
