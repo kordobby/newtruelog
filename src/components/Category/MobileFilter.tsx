@@ -12,22 +12,6 @@ interface IFilter {
   tags: TTags;
 }
 const MobileFilter: FC<IFilter> = ({ tags }) => {
-  const dummyData = [
-    'All',
-    'Blog',
-    'Next.js',
-    'React',
-    'Monthly',
-    'Blog',
-    'Next.js',
-    'React',
-    'Monthly',
-    'Blog',
-    'Next.js',
-    'React',
-    'Monthly',
-  ];
-
   const tagList = Object.keys(tags);
   const router = useRouter();
   const pathname = usePathname();
