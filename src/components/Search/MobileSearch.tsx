@@ -37,7 +37,7 @@ const MobileSearch = () => {
   return (
     <MobileSearchWrapper>
       <div className="search-box">
-        <span>🔍dd</span>
+        <span>🔍</span>
         <input
           type="text"
           onChange={getKeyword}

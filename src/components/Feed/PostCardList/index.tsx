@@ -12,16 +12,24 @@ const PostCardList: FC<PostCardListInterface> = ({ posts }) => {
   const [filterdPosts, setFilteredPosts] = useState<TPosts>([]);
   const searchParams = useSearchParams();
   const tag = searchParams.get('t');
+  const keyword = searchParams.get('k');
+  const sort = searchParams.get('s');
 
   useEffect(() => {
     if (!posts) return;
+    let postList = [] as TPosts;
+    postList = posts;
     if (tag !== null) {
-      const newArray = posts.filter((value) => value?.tags?.includes(tag));
-      setFilteredPosts(newArray);
-      return;
+      postList = postList.filter((value) => value?.tags?.includes(tag));
     }
-    setFilteredPosts(posts);
-  }, [posts, tag]);
+    if (keyword !== null) {
+      postList = postList.filter((value) => value?.title?.includes(keyword));
+    }
+    if (sort === 'asc') {
+      postList = postList.reverse();
+    }
+    setFilteredPosts(postList);
+  }, [posts, tag, keyword, sort]);
 
   if (!posts) return <></>;
   return (
