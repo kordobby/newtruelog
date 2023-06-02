@@ -2,22 +2,47 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
-import { ChangeEvent, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { ChangeEvent, KeyboardEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 const MobileSearch = () => {
   const [keyword, setKeyword] = useState('');
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const getKeyword = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log('asdf');
     setKeyword(e.target.value);
   };
 
-  /* 엔터를 치면 쿼리스트링 등록되게끔 구현해야지. */
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams?.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );
+
+  const enterKeyword = (e: KeyboardEvent<HTMLInputElement>) => {
+    console.log('heyllo');
+    if (e.key === 'Enter') {
+      router.push(`${pathname}?${createQueryString('k', keyword)}`);
+    }
+  };
+
   return (
     <MobileSearchWrapper>
       <div className="search-box">
-        <span>🔍</span>
-        <input onChange={getKeyword}></input>
+        <span>🔍dd</span>
+        <input
+          type="text"
+          onChange={getKeyword}
+          onKeyDown={enterKeyword}
+        ></input>
       </div>
     </MobileSearchWrapper>
   );
