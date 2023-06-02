@@ -21,7 +21,8 @@ export interface IDetailPostProps {
 const DetailPost: FC<IDetailPostProps> = ({ blockMap, data }) => {
   return (
     <>
-      <NotionRenderer
+      ...hihi
+      {/* <NotionRenderer
         recordMap={blockMap}
         components={{
           Code,
@@ -33,7 +34,7 @@ const DetailPost: FC<IDetailPostProps> = ({ blockMap, data }) => {
           nextLink: Link,
         }}
         mapPageUrl={mapPageUrl}
-      />
+      /> */}
     </>
   );
 };
