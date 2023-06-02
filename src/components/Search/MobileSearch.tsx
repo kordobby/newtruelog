@@ -13,7 +13,6 @@ const MobileSearch = () => {
   const searchParams = useSearchParams();
 
   const getKeyword = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log('asdf');
     setKeyword(e.target.value);
   };
 
