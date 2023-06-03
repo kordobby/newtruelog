@@ -5,12 +5,14 @@ import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import { TPost } from '@/libs/types';
 import { transferDate } from '@/utils/transferDate';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 const PostCard = ({ post }: { post: TPost }) => {
   const tags = post?.tags;
   return (
-    <PostCardWrapper>
+    <PostCardWrapper href={`/post/${post?.slug}`}>
       {/* <div className="profile-image"></div> */}
       <h3>{post.title}</h3>
       <span className="post-date">
@@ -32,7 +34,7 @@ const PostCard = ({ post }: { post: TPost }) => {
 
 export default PostCard;
 
-const PostCardWrapper = styled.div`
+const PostCardWrapper = styled(Link)`
   background-color: ${colors.brand.white};
   height: fit-content;
   margin: 20px 0px;
@@ -40,6 +42,7 @@ const PostCardWrapper = styled.div`
   padding: 35px 30px;
   display: flex;
   flex-direction: column;
+  /* cursor: pointer; */
 
   .profile-image {
     height: 282px;
