@@ -3,7 +3,9 @@
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import { TPosts, TTags } from '@/libs/types';
-import { FC } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { FC, useCallback } from 'react';
 import styled from 'styled-components';
 
 interface ICategoryProps {
@@ -11,13 +13,44 @@ interface ICategoryProps {
 }
 const Category: FC<ICategoryProps> = ({ tags }) => {
   const tagList = Object.keys(tags);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const searchParams = useSearchParams();
+  const tag = searchParams.get('t');
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams?.toString());
+      if (tag === value) {
+        params.delete(name);
+      } else {
+        params.set(name, value);
+      }
+      return params.toString();
+    },
+    [searchParams],
+  );
+
+  const setTagFilter = (value: string) => {
+    router.push(`${pathname}?${createQueryString('t', value)}`);
+  };
 
   return (
     <CategoryWrapper>
       <h3>Category</h3>
       <div className="category-tags">
         {tagList?.map((value, index) => (
-          <span key={`tag-${value}-${index}-full`}>{value}</span>
+          <Tag
+            isActive={value === tag}
+            onClick={() => {
+              setTagFilter(value);
+            }}
+            key={`tag-${value}-${index}-full`}
+          >
+            {value === tag && `👉 `}
+            {value}
+          </Tag>
         ))}
       </div>
     </CategoryWrapper>
@@ -47,12 +80,13 @@ const CategoryWrapper = styled.div<{ isActive?: boolean }>`
     font-weight: 700;
     gap: 5px;
     padding-left: 10px;
-    color: ${({ isActive }) =>
-      isActive ? colors.brand.orange : colors.brand.black};
-    span {
-      &:hover {
-        color: ${colors.brand.orange};
-      }
-    }
+  }
+`;
+
+const Tag = styled.span<{ isActive: boolean }>`
+  color: ${({ isActive }) =>
+    isActive ? colors.brand.blue : colors.brand.black};
+  &:hover {
+    color: ${colors.brand.orange};
   }
 `;
