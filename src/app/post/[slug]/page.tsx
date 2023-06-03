@@ -1,18 +1,29 @@
 import DetailTemplate from '@/components/DetailTemplate';
 import { getPostBlocks } from '@/libs/apis/getPostBlocks';
 import { getPosts } from '@/libs/apis/getPosts';
-import { TPosts } from '@/libs/types';
 
-const PostPage = async () => {
+export const dynamic = 'auto',
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = 'auto',
+  runtime = 'nodejs',
+  preferredRegin = 'auto';
+
+export async function generateStaticParams() {
   const posts = await getPosts();
-  const blockMap = await getPostBlocks('');
+  return posts.map((post) => ({
+    slug: post?.slug,
+  }));
+}
 
-  console.log(blockMap);
-
-  if (!posts) return <>...</>;
+const PostPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+  const posts = await getPosts();
+  const post = posts.find(value => value?.slug === slug)
+  const blockMap = await getPostBlocks(post?.id ?? '');
+  if (!post) return <>...</>;
   return (
     <>
-      <DetailTemplate data={posts as TPosts} blockMap={blockMap} />
+       <DetailTemplate data={post} blockMap={blockMap} /> */}
     </>
   );
 };

@@ -4,11 +4,32 @@ import { idToUuid } from 'notion-utils';
 import getPageProps from '@/utils/getPageProps';
 import { TPosts } from '../types';
 
+const getFullBlockId = (blockId: string) => {
+  if (typeof blockId !== 'string') {
+    throw Error(`blockId: ${typeof blockId} must be string`);
+  }
+  if (blockId.match('^[a-zA-Z0-9]+$')) {
+    return (
+      blockId.substr(0, 8) +
+      '-' +
+      blockId.substr(8, 4) +
+      '-' +
+      blockId.substr(12, 4) +
+      '-' +
+      blockId.substr(16, 4) +
+      '-' +
+      blockId.substr(20, 32)
+    );
+  } else {
+    return blockId;
+  }
+};
+
 export const getPosts = async () => {
   const id = 'c82b4d55012b4601b7a1021e75ed7594' as string;
   const api = new NotionAPI();
-  const response = await api.getPage(id);
 
+  const response = await api.getPage(id);
   const collection = Object.values(response.collection)[0]?.value;
   const block = response.block;
   const schema = collection?.schema;
