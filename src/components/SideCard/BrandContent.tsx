@@ -3,7 +3,7 @@ import { colors } from '@/libs/global/palette';
 import { ContactType, transferLinkUrl } from '@/utils/transferLinkUrl';
 import Link from 'next/link';
 import styled from 'styled-components';
-
+import { getContactIcon } from './MobileContact';
 const BrandContent = ({
   sns,
   linkName,
@@ -16,7 +16,7 @@ const BrandContent = ({
   return (
     <BrandContentWrapper isContact={isContact} onClick={() => {}}>
       <Link href={transferLinkUrl(sns) ?? ''} target="_blank">
-        <div className="icon" />
+        <div className="icon">{getContactIcon(sns, true)}</div>
         <span>{sns}</span>
       </Link>
     </BrandContentWrapper>
@@ -39,6 +39,9 @@ const BrandContentWrapper = styled.div<{ isContact: boolean }>`
     border-radius: 15px;
     background-color: ${colors.brand.blue};
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   span {
     /* color: ${colors.brand.black}; */

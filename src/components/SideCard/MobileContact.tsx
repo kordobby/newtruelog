@@ -12,14 +12,16 @@ import {
 } from 'react-icons/fa';
 
 type ContactType = 'github' | 'careerly' | 'instagram' | 'linkedin' | 'twitter';
-const getContactIcon = (option: ContactType) => {
+export const getContactIcon = (option: ContactType, full?: boolean) => {
   const style = { width: '28px', height: '28px', color: 'white' };
+  const fullStyle = { width: '18px', height: '18px', color: 'white' };
+  const iconStyle = full ? fullStyle : style;
   const optionsObj = {
-    github: <FaGithub style={style} />,
-    careerly: <FaGrinAlt style={style} />,
-    instagram: <FaInstagram style={style} />,
-    linkedin: <FaLinkedinIn style={style} />,
-    twitter: <FaTwitter style={style} />,
+    github: <FaGithub style={iconStyle} />,
+    careerly: <FaGrinAlt style={iconStyle} />,
+    instagram: <FaInstagram style={iconStyle} />,
+    linkedin: <FaLinkedinIn style={iconStyle} />,
+    twitter: <FaTwitter style={iconStyle} />,
   };
   return optionsObj?.[option];
 };
