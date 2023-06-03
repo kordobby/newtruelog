@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <main>
+      {/* @ts-expect-error Server Component */}
       <Column />
     </main>
   );

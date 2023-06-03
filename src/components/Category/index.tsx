@@ -2,16 +2,22 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { TPosts, TTags } from '@/libs/types';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-const Category = () => {
-  const dummyData = ['All', 'Blog', 'Next.js', 'React', 'Monthly'];
+interface ICategoryProps {
+  tags: TTags;
+}
+const Category: FC<ICategoryProps> = ({ tags }) => {
+  const tagList = Object.keys(tags);
+
   return (
     <CategoryWrapper>
       <h3>Category</h3>
       <div className="category-tags">
-        {dummyData.map((value, index) => (
-          <span key={value}>{value}</span>
+        {tagList?.map((value, index) => (
+          <span key={`tag-${value}-${index}-full`}>{value}</span>
         ))}
       </div>
     </CategoryWrapper>

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
 import MobileFilter from '../Category/MobileFilter';
 import MobileSearch from '../Search/MobileSearch';
 import FeedHeader from './FeedHeader';
 import FeedWrapper from './FeedWrapper';
-import { getPosts } from '@/libs/apis/getPosts';
 import PostCardList from './PostCardList';
-import { getTagGroups } from '@/utils/getTagGroups';
+import { TPosts, TTags } from '@/libs/types';
 
-const Feed = async () => {
-  const posts = await getPosts();
-  const tags = getTagGroups('tags', posts);
-
+interface IFeedProps {
+  posts: TPosts;
+  tags: TTags;
+}
+const Feed: FC<IFeedProps> = ({ posts, tags }) => {
   return (
     <FeedWrapper>
       <React.Fragment>
-        <FeedHeader />
+        <FeedHeader total={posts} />
         <MobileFilter tags={tags} />
         <MobileSearch />
         <PostCardList posts={posts} />

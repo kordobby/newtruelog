@@ -4,11 +4,14 @@ import Search from '@/components/Search';
 import Profile from '@/components/Profile';
 import Feed from '@/components/Feed';
 import MobileProfile from '@/components/Profile/MobileProfile';
-import MobileSearch from '@/components/Search/MobileSearch';
 import MobileContact from '@/components/SideCard/MobileContact';
 import ColumnWrapper from './ColumnWrapper';
+import { getPosts } from '@/libs/apis/getPosts';
+import { getTagGroups } from '@/utils/getTagGroups';
 
-const Column = () => {
+const Column = async () => {
+  const posts = await getPosts();
+  const tags = getTagGroups('tags', posts);
   return (
     <ColumnWrapper>
       <div className="left-col">
@@ -17,12 +20,11 @@ const Column = () => {
       <div className="center-col">
         <MobileProfile />
         <MobileContact />
-        {/* @ts-expect-error Server Component */}
-        <Feed />
+        <Feed posts={posts} tags={tags} />
       </div>
       <div className="right-col">
         <Search />
-        <Category />
+        <Category tags={tags} />
         <SideCard category="contact" />
         <SideCard category="service" />
       </div>

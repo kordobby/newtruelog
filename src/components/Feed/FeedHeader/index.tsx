@@ -2,16 +2,21 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
+import { TPost, TPosts } from '@/libs/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const FeedHeader = () => {
+interface IFeedHeaderInterface {
+  total?: TPosts;
+}
+const FeedHeader: FC<IFeedHeaderInterface> = ({ total }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const sort = searchParams.get('s');
+  const [totalCount, setTotalCount] = useState<number>(0);
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams?.toString());
@@ -23,11 +28,18 @@ const FeedHeader = () => {
   const setTagFilter = (value: string) => {
     router.push(`${pathname}?${createQueryString('s', value)}`);
   };
+
+  useEffect(() => {
+    if (!total) return;
+    const array = [...total];
+    setTotalCount(array?.length);
+  }, [JSON.stringify(total)]);
+
   return (
     <FeedHeaderWrapper>
       <div className="posts">
         <h3>Posts</h3>
-        <span>(23)</span>
+        <span>{`(${totalCount})`}</span>
       </div>
       <div className="filter">
         <FeelFilterBtn
