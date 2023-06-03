@@ -3,6 +3,7 @@
 import { SITE_CONFIG } from '@/../site.config';
 import BrandContent from './BrandContent';
 import { SideCardWrapper } from './SideCard.styles';
+import { ContactType } from '@/utils/transferLinkUrl';
 
 interface SideCardProps {
   category: 'contact' | 'service';
@@ -18,7 +19,7 @@ const SideCard = ({ category }: SideCardProps) => {
         return (
           <BrandContent
             key={`contact-${value.name}-${index}`}
-            sns={value.name}
+            sns={value.name as ContactType}
             linkName={value.href}
             isContact={isContact}
           />

@@ -4,10 +4,8 @@ import { getPosts } from '@/libs/apis/getPosts';
 
 export const dynamic = 'auto',
   dynamicParams = true,
-  revalidate = 0,
-  fetchCache = 'auto',
-  runtime = 'nodejs',
-  preferredRegin = 'auto';
+  revalidate = 60,
+  fetchCache = 'auto';
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -18,12 +16,12 @@ export async function generateStaticParams() {
 
 const PostPage = async ({ params: { slug } }: { params: { slug: string } }) => {
   const posts = await getPosts();
-  const post = posts.find(value => value?.slug === slug)
+  const post = posts.find((value) => value?.slug === slug);
   const blockMap = await getPostBlocks(post?.id ?? '');
-  if (!post) return <>...</>;
+  if (!post) return <></>;
   return (
     <>
-       <DetailTemplate data={post} blockMap={blockMap} /> */}
+      <DetailTemplate data={post} blockMap={blockMap} />
     </>
   );
 };
