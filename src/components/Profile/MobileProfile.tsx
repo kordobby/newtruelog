@@ -15,6 +15,8 @@ const MobileProfile = () => {
           src="/leetrue.PNG"
           width={80}
           height={80}
+          loading="eager"
+          priority={true}
           alt="profile image"
           style={{ borderRadius: '8px' }}
         />

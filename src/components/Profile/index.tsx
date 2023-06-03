@@ -16,6 +16,8 @@ const Profile = () => {
           width={165}
           height={165}
           alt="profile image"
+          loading="eager"
+          priority={true}
           style={{ borderRadius: '8px' }}
         />
         <span className="profile_name">{SITE_CONFIG.profile.name}</span>
