@@ -11,7 +11,20 @@ interface IDetailProps {
   blockMap: ExtendedRecordMap;
 }
 const DetailTemplate: FC<IDetailProps> = ({ data, blockMap }) => {
-  return <DetailPost data={data} blockMap={blockMap} />;
+  return (
+    <DetailTemplateWrapper>
+      <DetailPost data={data} blockMap={blockMap} />
+    </DetailTemplateWrapper>
+  );
 };
 
 export default DetailTemplate;
+
+const DetailTemplateWrapper = styled.div`
+  background-color: white;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 40px;
+`;
