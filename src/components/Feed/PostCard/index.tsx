@@ -22,7 +22,7 @@ const PostCard = ({ post }: { post: TPost }) => {
       <div className="tag-wrapper">
         {tags?.map((value, index) => {
           return (
-            <Tag key={index} colorIndex={index}>
+            <Tag key={`${value}-${post?.id}`} colorIndex={index}>
               {value}
             </Tag>
           );
