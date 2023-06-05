@@ -40,6 +40,10 @@ const Category: FC<ICategoryProps> = ({ tags }) => {
     <CategoryWrapper>
       <h3>Category</h3>
       <div className="category-tags">
+        <Tag isActive={tag === null} onClick={() => {}} key={`tag-all-full`}>
+          {tag === null && `👉 `}
+          {`All`}
+        </Tag>
         {tagList?.map((value, index) => (
           <Tag
             isActive={value === tag}
