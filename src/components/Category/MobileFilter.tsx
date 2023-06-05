@@ -39,10 +39,17 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
   return (
     <MobileFilterWrapper>
       <div className="category-tags">
+        <TagWrapper
+          key={`mobile-tag-all`}
+          style={{ cursor: 'pointer' }}
+          isActive={tag === null}
+        >
+          <span>All</span>
+        </TagWrapper>
         {tagList?.map((value, index) => (
           <TagWrapper
             isActive={value === tag}
-            key={value}
+            key={`mobile-tag-${value}`}
             onClick={() => {
               setTagFilter(value);
             }}
