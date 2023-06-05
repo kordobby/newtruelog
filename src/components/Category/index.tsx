@@ -36,11 +36,22 @@ const Category: FC<ICategoryProps> = ({ tags }) => {
     router.push(`${pathname}?${createQueryString('t', value)}`);
   };
 
+  const clearTagFilter = () => {
+    if (!tag) return;
+    const params = new URLSearchParams(searchParams?.toString());
+    params.delete('t');
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <CategoryWrapper>
       <h3>Category</h3>
       <div className="category-tags">
-        <Tag isActive={tag === null} onClick={() => {}} key={`tag-all-full`}>
+        <Tag
+          isActive={tag === null}
+          onClick={clearTagFilter}
+          key={`tag-all-full`}
+        >
           {tag === null && `👉 `}
           {`All`}
         </Tag>
