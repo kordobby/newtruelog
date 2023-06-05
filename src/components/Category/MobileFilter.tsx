@@ -36,6 +36,13 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
     router.push(`${pathname}?${createQueryString('t', value)}`);
   };
 
+  const clearTagFilter = () => {
+    if (!tag) return;
+    const params = new URLSearchParams(searchParams?.toString());
+    params.delete('t');
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <MobileFilterWrapper>
       <div className="category-tags">
@@ -43,6 +50,7 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
           key={`mobile-tag-all`}
           style={{ cursor: 'pointer' }}
           isActive={tag === null}
+          onClick={clearTagFilter}
         >
           <span>All</span>
         </TagWrapper>
