@@ -27,7 +27,7 @@ const Logo = ({ types }: { types: HeaderLogoTypes }) => {
     );
   }
   return (
-    <LogoWrapper>
+    <LogoWrapper onClick={moveScreen}>
       <span>{SITE_CONFIG.blog.title}</span>
     </LogoWrapper>
   );
