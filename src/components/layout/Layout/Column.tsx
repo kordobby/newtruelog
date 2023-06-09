@@ -6,12 +6,15 @@ import Feed from '@/components/Feed';
 import MobileProfile from '@/components/Profile/MobileProfile';
 import MobileContact from '@/components/SideCard/MobileContact';
 import ColumnWrapper from './ColumnWrapper';
-import { getPosts } from '@/libs/apis/getPosts';
 import { getTagGroups } from '@/utils/getTagGroups';
+import { getPosts } from '@/libs/api/getPosts';
 
 const Column = async () => {
   const posts = await getPosts();
-  const tags = getTagGroups('tags', posts);
+  if (!posts?.data) return <></>;
+
+  const tags = getTagGroups('tags', posts?.data);
+  const data = posts?.data;
   return (
     <ColumnWrapper>
       <div className="left-col">
@@ -20,7 +23,7 @@ const Column = async () => {
       <div className="center-col">
         <MobileProfile />
         <MobileContact />
-        <Feed posts={posts} tags={tags} />
+        <Feed posts={data} tags={tags} />
       </div>
       <div className="right-col">
         <Search />
