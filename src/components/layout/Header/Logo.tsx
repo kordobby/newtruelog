@@ -13,7 +13,7 @@ const Logo = ({ types }: { types: HeaderLogoTypes }) => {
   const subLogo = types === 'about';
   const moveScreen = () => {
     if (subLogo) {
-      route.push('/about');
+      route.push(`/post/about`);
     } else {
       route.push('/');
     }
