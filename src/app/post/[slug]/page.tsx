@@ -5,8 +5,7 @@ import { TPosts } from '@/libs/types';
 
 export const dynamic = 'auto',
   dynamicParams = true,
-  revalidate = 60,
-  fetchCache = 'auto';
+  revalidate = 60;
 
 export async function generateStaticParams() {
   const posts = await getPosts();
