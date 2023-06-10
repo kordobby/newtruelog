@@ -11,8 +11,10 @@ import styled from 'styled-components';
 
 const PostCard = ({ post }: { post: TPost }) => {
   const tags = post?.tags;
+  const router = useRouter();
+  //href={`/post/${post?.slug}`}
   return (
-    <PostCardWrapper href={`/post/${post?.slug}`}>
+    <PostCardWrapper>
       {/* <div className="profile-image"></div> */}
       <h3>{post.title}</h3>
       <span className="post-date">
@@ -34,7 +36,7 @@ const PostCard = ({ post }: { post: TPost }) => {
 
 export default PostCard;
 
-const PostCardWrapper = styled(Link)`
+const PostCardWrapper = styled.div`
   background-color: ${colors.brand.white};
   height: fit-content;
   margin: 20px 0px;
