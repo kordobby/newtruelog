@@ -12,9 +12,9 @@ import styled from 'styled-components';
 const PostCard = ({ post }: { post: TPost }) => {
   const tags = post?.tags;
   const router = useRouter();
-  //href={`/post/${post?.slug}`}
+
   return (
-    <PostCardWrapper>
+    <PostCardWrapper onClick={() => router.push(`/post/${post?.slug}`)}>
       {/* <div className="profile-image"></div> */}
       <h3>{post.title}</h3>
       <span className="post-date">
