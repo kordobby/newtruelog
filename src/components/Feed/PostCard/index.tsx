@@ -37,6 +37,7 @@ const PostCard = ({ post }: { post: TPost }) => {
 export default PostCard;
 
 const PostCardWrapper = styled.div`
+  cursor: pointer;
   background-color: ${colors.brand.white};
   height: fit-content;
   margin: 20px 0px;
