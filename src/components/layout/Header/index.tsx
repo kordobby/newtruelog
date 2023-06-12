@@ -25,7 +25,6 @@ const HeaderWrapper = styled.div`
   position: sticky;
   z-index: 4;
   top: 0;
-
   display: flex;
   justify-content: center;
 `;
