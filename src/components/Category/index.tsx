@@ -4,7 +4,6 @@ import useQueryString from '@/hooks/useQueryString';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import { TTags } from '@/libs/types';
-import { useSearchParams } from 'next/navigation';
 import { FC } from 'react';
 import styled from 'styled-components';
 

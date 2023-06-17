@@ -3,10 +3,8 @@
 import useQueryString from '@/hooks/useQueryString';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
-import { TPost, TPosts } from '@/libs/types';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
-import { FC, useCallback, useEffect, useState } from 'react';
+import { TPosts } from '@/libs/types';
+import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 interface IFeedHeaderInterface {

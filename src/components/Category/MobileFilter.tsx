@@ -2,10 +2,8 @@
 
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { TTags } from '@/libs/types';
 import useQueryString from '@/hooks/useQueryString';
 
