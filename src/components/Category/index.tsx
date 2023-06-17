@@ -12,9 +12,8 @@ interface ICategoryProps {
   tags: TTags;
 }
 const Category: FC<ICategoryProps> = ({ tags }) => {
-  const { setQueryString, clearQueryString } = useQueryString();
+  const { searchParams, setQueryString, clearQueryString } = useQueryString();
   const tagList = Object.keys(tags);
-  const searchParams = useSearchParams();
   const tag = searchParams.get('t');
 
   return (

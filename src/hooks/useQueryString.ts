@@ -19,7 +19,7 @@ const useQueryString = () => {
   const clearQueryString = () => {
     router.replace(pathname);
   };
-  return { setQueryString, clearQueryString };
+  return { searchParams, setQueryString, clearQueryString };
 };
 
 export default useQueryString;

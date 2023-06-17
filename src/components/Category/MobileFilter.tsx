@@ -7,41 +7,15 @@ import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 import { FC, useCallback } from 'react';
 import { TTags } from '@/libs/types';
+import useQueryString from '@/hooks/useQueryString';
 
 interface IFilter {
   tags: TTags;
 }
 const MobileFilter: FC<IFilter> = ({ tags }) => {
   const tagList = Object.keys(tags);
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const searchParams = useSearchParams();
+  const { searchParams, setQueryString, clearQueryString } = useQueryString();
   const tag = searchParams.get('t');
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams?.toString());
-      if (tag === value) {
-        params.delete(name);
-      } else {
-        params.set(name, value);
-      }
-      return params.toString();
-    },
-    [searchParams],
-  );
-
-  const setTagFilter = (value: string) => {
-    router.push(`${pathname}?${createQueryString('t', value)}`);
-  };
-
-  const clearTagFilter = () => {
-    if (!tag) return;
-    const params = new URLSearchParams(searchParams?.toString());
-    params.delete('t');
-    router.push(`${pathname}?${params.toString()}`);
-  };
 
   return (
     <MobileFilterWrapper>
@@ -50,7 +24,7 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
           key={`mobile-tag-all`}
           style={{ cursor: 'pointer' }}
           isActive={tag === null}
-          onClick={clearTagFilter}
+          onClick={clearQueryString}
         >
           <span>All</span>
         </TagWrapper>
@@ -59,7 +33,7 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
             isActive={value === tag}
             key={`mobile-tag-${value}`}
             onClick={() => {
-              setTagFilter(value);
+              setQueryString('tag', value);
             }}
             style={{ cursor: 'pointer' }}
           >
