@@ -1,35 +1,25 @@
 'use client';
 
+import useQueryString from '@/hooks/useQueryString';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { ChangeEvent, KeyboardEvent, useCallback, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import styled from 'styled-components';
 
 const MobileSearch = () => {
   const [keyword, setKeyword] = useState('');
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { setQueryString, clearQueryString } = useQueryString();
 
   const getKeyword = (e: ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams?.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams],
-  );
-
   const enterKeyword = (e: KeyboardEvent<HTMLInputElement>) => {
-    console.log('heyllo');
+    if (keyword === '') {
+      clearQueryString();
+    }
     if (e.key === 'Enter') {
-      router.push(`${pathname}?${createQueryString('k', keyword)}`);
+      setQueryString('k', keyword);
     }
   };
 
