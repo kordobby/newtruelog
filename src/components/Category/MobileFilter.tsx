@@ -33,7 +33,7 @@ const MobileFilter: FC<IFilter> = ({ tags }) => {
             isActive={value === tag}
             key={`mobile-tag-${value}`}
             onClick={() => {
-              setQueryString('tag', value);
+              setQueryString('t', value);
             }}
             style={{ cursor: 'pointer' }}
           >

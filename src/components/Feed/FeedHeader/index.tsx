@@ -1,5 +1,6 @@
 'use client';
 
+import useQueryString from '@/hooks/useQueryString';
 import { utilFonts } from '@/libs/global/fonts';
 import { colors } from '@/libs/global/palette';
 import { TPost, TPosts } from '@/libs/types';
@@ -12,22 +13,9 @@ interface IFeedHeaderInterface {
   total?: TPosts;
 }
 const FeedHeader: FC<IFeedHeaderInterface> = ({ total }) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { searchParams, setQueryString } = useQueryString();
   const sort = searchParams.get('s');
   const [totalCount, setTotalCount] = useState<number>(0);
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams?.toString());
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams],
-  );
-  const setTagFilter = (value: string) => {
-    router.push(`${pathname}?${createQueryString('s', value)}`);
-  };
 
   useEffect(() => {
     if (!total) return;
@@ -44,7 +32,7 @@ const FeedHeader: FC<IFeedHeaderInterface> = ({ total }) => {
       <div className="filter">
         <FeelFilterBtn
           onClick={() => {
-            setTagFilter('desc');
+            setQueryString('s', 'desc');
           }}
           isActive={sort === null || sort === 'desc'}
         >
@@ -52,7 +40,7 @@ const FeedHeader: FC<IFeedHeaderInterface> = ({ total }) => {
         </FeelFilterBtn>
         <FeelFilterBtn
           onClick={() => {
-            setTagFilter('asc');
+            setQueryString('s', 'asc');
           }}
           isActive={sort === 'asc'}
         >
